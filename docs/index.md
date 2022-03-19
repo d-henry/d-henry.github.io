@@ -5,7 +5,7 @@
 * [Yukai's Cautious Broccoli](https://yukaia.github.io/cautious-broccoli/)
 * [Github pages documentation](https://pages.github.com/)
 * [VS Code Plugin for Markdown](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
-* Documentation for Markdown at [mkdocs.org](https://www.mkdocs.org/)
+* Documentation for Mkdocs with markdown at [mkdocs.org](https://www.mkdocs.org/)
 
 ## Project layout
 
