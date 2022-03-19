@@ -1,5 +1,4 @@
 site_name: Preacher's Docs
-site_url: https://d-henry.github.io/
 nav:
     - Home: index.md
     - About: about.md
