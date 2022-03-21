@@ -44,7 +44,6 @@ body {
   
   .wm-top-brand {
   display: inline-block;
-  float: left;
   overflow: visible;
   width: 0px;
   height: 50px;
@@ -290,7 +289,6 @@ body {
   .wm-page-toc-opener > .wm-toc-text::after {
   content: "\25C4";
   display: inline-block;
-  float: right;
   vertical-align: middle;
   font-size: 8px;
   }
