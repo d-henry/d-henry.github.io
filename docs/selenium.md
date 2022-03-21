@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------------------
 ## Selenium Resources
 
-A list of resources, documentation, and courses for selenium test automation.
+A list of resources, documentation, courses, and tips for selenium test automation.
 
 These resources are for both Java and Python.
 
@@ -47,6 +47,14 @@ Then we create a Select Object and assign the element to it
 Then we can select by visible text
 
 `select_object.select_by_visible_text("some option")`
+
+- Verify an element (like a checkbox) is enabled.
+
+`is_enabled = some_element.is_enabled()`
+
+This will set is_enabled to either true or false, which we can then assert against using pytest
+
+`assert(is_enabled)`
 
 
 
