@@ -123,15 +123,14 @@
 <li>
 <p>Send text to a field -- <code>some_field_element.send_keys("text here")</code></p>
 </li>
-</ul>
-<hr />
-<ul>
-<li>Select an option from a dropdown</li>
+<li>
+<p>Select an option from a dropdown</p>
+</li>
 </ul>
 <p>There are several ways to achieve this, this is just one example.</p>
 <p>First we find the Select element. in the Sorenson project It would look like this.</p>
 <p><code>select_element = self.browser.find_element(*self.SOME_SELECT)</code></p>
-<p>Where browser is our WebDriver and self.SOME_SELECT is our locator reference.</p>
+<p>Where <code>browser</code> is our WebDriver and <code>*self.SOME_SELECT</code> is our locator reference.</p>
 <p>Then we create a Select Object and assign the element to it</p>
 <p><code>select_object = Select(select_element)</code></p>
 <p>Then we can select by visible text</p>
