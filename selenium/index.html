@@ -102,6 +102,11 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            
+            <li class="nav-item" data-level="2"><a href="#why-isnt-intellisense-working-for-selenium" class="nav-link">Why isn't intellisense working for selenium???</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
@@ -126,19 +131,22 @@ qid=1647877891&amp;sprefix=python+crash+course%2Caps%2C132&amp;sr=8-1"><strong>P
 <h2 id="basic-selenium-operations-in-python">Basic Selenium Operations in Python</h2>
 <ul>
 <li>
-<p>Click an element -- <code>some_button_element.click()</code></p>
+<p><a href="https://www.selenium.dev/documentation/webdriver/elements/interactions/#click">Click</a> an 
+  element -- <code>some_button_element.click()</code></p>
 </li>
 <li>
-<p>Send text to a field -- <code>some_field_element.send_keys("text here")</code></p>
+<p><a href="https://www.selenium.dev/documentation/webdriver/elements/interactions/#send-keys">Send text</a> to a 
+  field -- <code>some_field_element.send_keys("text here")</code></p>
 </li>
 <li>
-<p>Select an option from a dropdown</p>
+<p><a href="https://www.selenium.dev/documentation/webdriver/elements/select_lists/">Select</a> an option from a dropdown or select list</p>
 </li>
 </ul>
 <p>There are several ways to achieve this, this is just one example.</p>
 <p>First we find the Select element. in the Sorenson project It would look like this.</p>
 <p><code>select_element = self.browser.find_element(*self.SOME_SELECT)</code></p>
-<p>Where <code>browser</code> is our WebDriver and <code>*self.SOME_SELECT</code> is our locator reference.</p>
+<p>Where <code>browser</code> is our <a href="https://www.selenium.dev/documentation
+/webdriver/_print/">WebDriver</a> and <code>*self.SOME_SELECT</code> is our locator reference.</p>
 <p>Then we create a Select Object and assign the element to it</p>
 <p><code>select_object = Select(select_element)</code></p>
 <p>Then we can select by visible text</p>
@@ -174,6 +182,11 @@ all three.</p>
 </ul>
 <p>For more information on waits, please see the <a href="https://www.selenium.dev/documentation/webdriver
 /waits/">Documentation</a></p>
+<h2 id="why-isnt-intellisense-working-for-selenium">Why isn't intellisense working for selenium???</h2>
+<p>This is a problem I ran into, and have yet to solve for python with selenium unless i'm using Pycharm.</p>
+<p>If i'm using pycharm my solution was to use a <a href="https://www.jetbrains.com/help/pycharm/type-hinting-in-product.html">Type Hint</a></p>
+<p>Otherwise it's most commonly a package / import issue. make sure you followed the correct steps to install selenium for
+the language you are using and that it has been added to the project in your <a href="https://www.codecademy.com/article/what-is-an-ide">IDE</a>.</p>
 <hr /></div>
             </div>
         </div>
