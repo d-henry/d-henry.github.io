@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------------------
 ## Selenium Resources
 
-A list of resources, documentation, and courses for selenium automation.
+A list of resources, documentation, and courses for selenium test automation.
 
 These resources are for both Java and Python.
 
