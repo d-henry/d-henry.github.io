@@ -29,11 +29,13 @@ They can be found [**here.**](https://www.youtube.com/playlist?list=PLzMcBGfZo4-
 
 ## Basic Selenium Operations in Python
 
-- Click an element -- `some_button_element.click()`
+- [Click](https://www.selenium.dev/documentation/webdriver/elements/interactions/#click) an 
+  element -- `some_button_element.click()`
 
-- Send text to a field -- `some_field_element.send_keys("text here")`
+- [Send text](https://www.selenium.dev/documentation/webdriver/elements/interactions/#send-keys) to a 
+  field -- `some_field_element.send_keys("text here")`
 
-- Select an option from a dropdown
+- [Select](https://www.selenium.dev/documentation/webdriver/elements/select_lists/) an option from a dropdown or select list
 
 There are several ways to achieve this, this is just one example.
 
@@ -41,7 +43,8 @@ First we find the Select element. in the Sorenson project It would look like thi
 
 `select_element = self.browser.find_element(*self.SOME_SELECT)`
 
-Where `browser` is our WebDriver and `*self.SOME_SELECT` is our locator reference.
+Where `browser` is our [WebDriver](https://www.selenium.dev/documentation
+/webdriver/_print/) and `*self.SOME_SELECT` is our locator reference.
 
 Then we create a Select Object and assign the element to it
 
@@ -87,6 +90,15 @@ all three.
 
 For more information on waits, please see the [Documentation](https://www.selenium.dev/documentation/webdriver
 /waits/)
+
+## Why isn't intellisense working for selenium???
+
+This is a problem I ran into, and have yet to solve for python with selenium unless i'm using Pycharm.
+
+If i'm using pycharm my solution was to use a [Type Hint](https://www.jetbrains.com/help/pycharm/type-hinting-in-product.html)
+
+Otherwise it's most commonly a package / import issue. make sure you followed the correct steps to install selenium for
+the language you are using and that it has been added to the project in your [IDE](https://www.codecademy.com/article/what-is-an-ide).
 ------------------------------------------------------------------------------------------
 
 
