@@ -92,6 +92,11 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            
+            <li class="nav-item" data-level="2"><a href="#basic-selenium-operations-in-python" class="nav-link">Basic Selenium Operations in Python</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
@@ -109,7 +114,28 @@
 <p>For Python I recommend the <a href="https://www.amazon.com/Python-Crash-Course-2nd-Edition/dp/1593279280/ref=sr_1_1?crid=2O2DHEM0XKEY5&amp;keywords=python+crash+course&amp;qid=1647877891&amp;sprefix=python+crash+course%2Caps%2C132&amp;sr=8-1"><strong>Python crash course (2nd edition)</strong></a> Textbook.</p>
 <p>For Java i was mostly taught in university classes, however <a href="https://www.w3schools.com/java/java_intro.asp">this</a> Is a decent introduction.</p>
 <p>For Selenium I recommend Tech With Tim's videos for an absolute beginner's introduction</p>
-<p>They can be found <a href="https://www.youtube.com/playlist?list=PLzMcBGfZo4-n40rB1XaJ0ak1bemvlqumQ"><strong>here.</strong></a></p></div>
+<p>They can be found <a href="https://www.youtube.com/playlist?list=PLzMcBGfZo4-n40rB1XaJ0ak1bemvlqumQ"><strong>here.</strong></a></p>
+<h2 id="basic-selenium-operations-in-python">Basic Selenium Operations in Python</h2>
+<ul>
+<li>
+<p>Click an element -- <code>some_button_element.click()</code></p>
+</li>
+<li>
+<p>Send text to a field -- <code>some_field_element.send_keys("text here")</code></p>
+</li>
+</ul>
+<hr />
+<ul>
+<li>Select an option from a dropdown</li>
+</ul>
+<p>There are several ways to achieve this, this is just one example.</p>
+<p>First we find the Select element. in the Sorenson project It would look like this.</p>
+<p><code>select_element = self.browser.find_element(*self.SOME_SELECT)</code></p>
+<p>Where browser is our WebDriver and self.SOME_SELECT is our locator reference.</p>
+<p>Then we create a Select Object and assign the element to it</p>
+<p><code>select_object = Select(select_element)</code></p>
+<p>Then we can select by visible text</p>
+<p><code>select_object.select_by_visible_text("some option")</code></p></div>
             </div>
         </div>
 
