@@ -13,7 +13,7 @@ dark-code-bg #31363F
 
 body {
     background-color: #1A1B1B;
-    color: white;
+    color: #949494;
   }
   
   /***********************************************************************
@@ -49,7 +49,7 @@ body {
   height: 50px;
   color: #01d101;
   font-size: 18px;
-  white-space: nowrap;
+  #949494-space: nowrap;
   text-decoration: none;
   }
   
@@ -91,7 +91,7 @@ body {
   
   .wm-top-tool {
   height: 50px;
-  white-space: nowrap;
+  #949494-space: nowrap;
   }
   
   .wm-top-tool-expanded {
@@ -361,7 +361,7 @@ body {
   .wm-article-nav {
   display: inline-block;
   max-width: 48%;
-  white-space: nowrap;
+  #949494-space: nowrap;
   color: #9DDF52;
   text-align: right;
   }
@@ -387,7 +387,7 @@ body {
   width: 40rem;
   overflow-y: auto;
   overflow-x: hidden;
-  white-space: normal;
+  #949494-space: normal;
   max-height: calc(100vh - 60px);
   max-width: 90vw;
   }
@@ -482,14 +482,14 @@ body {
     background: #31363F;
     border: none 1px black;
     color: #9DDF52;
-    white-space: pre-wrap;
+    #949494-space: pre-wrap;
     word-wrap: break-word;
   }
   
   pre code {
     background: transparent;
     border: none;
-    white-space: pre;
+    #949494-space: pre;
     word-wrap: normal;
     font-family: monospace,serif;
     font-size: 12px;
