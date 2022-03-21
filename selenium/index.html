@@ -97,6 +97,11 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            
+            <li class="nav-item" data-level="2"><a href="#common-issues-and-roadblocks" class="nav-link">Common issues and roadblocks</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
@@ -107,12 +112,15 @@
 <p>A list of resources, documentation, courses, and tips for selenium test automation.</p>
 <p>These resources are for both Java and Python.</p>
 <h2 id="documentation">Documentation</h2>
-<p><a href="https://www.python.org/doc/">Python Doc's</a></p>
-<p><a href="https://docs.oracle.com/en/java/">Java Doc's</a></p>
-<p><a href="https://www.selenium.dev/documentation/">Selenium Doc's</a></p>
+<p><a href="https://www.python.org/doc/">Python Docs</a></p>
+<p><a href="https://docs.oracle.com/en/java/">Java Docs</a></p>
+<p><a href="https://www.selenium.dev/documentation/">Selenium Docs</a></p>
 <h2 id="recommended-reading">Recommended Reading</h2>
-<p>For Python I recommend the <a href="https://www.amazon.com/Python-Crash-Course-2nd-Edition/dp/1593279280/ref=sr_1_1?crid=2O2DHEM0XKEY5&amp;keywords=python+crash+course&amp;qid=1647877891&amp;sprefix=python+crash+course%2Caps%2C132&amp;sr=8-1"><strong>Python crash course (2nd edition)</strong></a> Textbook.</p>
-<p>For Java i was mostly taught in university classes, however <a href="https://www.w3schools.com/java/java_intro.asp">this</a> Is a decent introduction.</p>
+<p>For Python I recommend the <a href="https://www.amazon.com/Python-Crash-Course-2nd-Edition
+/dp/1593279280/ref=sr_1_1?crid=2O2DHEM0XKEY5&amp;keywords=python+crash+course&amp;
+qid=1647877891&amp;sprefix=python+crash+course%2Caps%2C132&amp;sr=8-1"><strong>Python crash course (2nd edition)</strong></a> Textbook.</p>
+<p>For Java i was mostly taught in university classes, however <a href="https://www.w3schools.com/java/java_intro.asp">this</a>
+ Is a decent introduction.</p>
 <p>For Selenium I recommend Tech With Tim's videos for an absolute beginner's introduction</p>
 <p>They can be found <a href="https://www.youtube.com/playlist?list=PLzMcBGfZo4-n40rB1XaJ0ak1bemvlqumQ"><strong>here.</strong></a></p>
 <h2 id="basic-selenium-operations-in-python">Basic Selenium Operations in Python</h2>
@@ -140,7 +148,33 @@
 </ul>
 <p><code>is_enabled = some_element.is_enabled()</code></p>
 <p>This will set is_enabled to either true or false, which we can then assert against using pytest</p>
-<p><code>assert(is_enabled)</code></p></div>
+<p><code>assert(is_enabled)</code></p>
+<h2 id="common-issues-and-roadblocks">Common issues and roadblocks</h2>
+<ul>
+<li>ElementNotFound Exceptions</li>
+</ul>
+<p>By far the most common issue you will ever see creating and maintaining Selenium Test Automation and one of the most
+annoying to try and fix. This exception occurs (usually) when the <a href="https://www.selenium.dev/documentation
+/webdriver/_print/">WebDriver</a> attempts to access or manipulate an element that hasn't yet been loaded into the
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/
+Introduction">DOM</a>, or is not displayed.</p>
+<p>There are several things you should check here.</p>
+<p>First, is it a timing issue? Selenium has three types of <a href="https://www.selenium.dev/documentation/webdriver
+/waits/"><strong>waits</strong></a> built in for us to use, and it's important to understand
+all three.</p>
+<ul>
+<li><a href="https://www.selenium.dev/documentation/webdriver/waits/#explicit-wait">Explicit wait</a>
+  , typically used as a wait until some condition is true. e.g element to be clickable / visible.</li>
+<li><a href="https://www.selenium.dev/documentation/webdriver/waits/#implicit-wait">Implicit wait</a>
+  , used to wait for any element, this is more of a configuration setting then something you
+ actually do in code.</li>
+<li><a href="https://www.selenium.dev/documentation/webdriver/waits/#fluentwait">Fluent wait</a>, useful for ignoring
+   exceptions that may arise while waiting, such as ElementNotVisibleException or 
+  ElementNotSelectableException</li>
+</ul>
+<p>For more information on waits, please see the <a href="https://www.selenium.dev/documentation/webdriver
+/waits/">Documentation</a></p>
+<hr /></div>
             </div>
         </div>
 
