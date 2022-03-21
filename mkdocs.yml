@@ -4,4 +4,6 @@ nav:
     - Home: index.md
     - Selenium: selenium.md
     - About: about.md
-theme: lux
+theme:
+    name: windmill-dark
+    custom_dir: custom_theme
