@@ -30,7 +30,6 @@ They can be found [**here.**](https://www.youtube.com/playlist?list=PLzMcBGfZo4-
 
 - Send text to a field -- `some_field_element.send_keys("text here")`
 
---------------------------------------------------------------------------------------------------
 - Select an option from a dropdown
 
 There are several ways to achieve this, this is just one example.
@@ -39,7 +38,7 @@ First we find the Select element. in the Sorenson project It would look like thi
 
 `select_element = self.browser.find_element(*self.SOME_SELECT)`
 
-Where browser is our WebDriver and self.SOME_SELECT is our locator reference.
+Where `browser` is our WebDriver and `*self.SOME_SELECT` is our locator reference.
 
 Then we create a Select Object and assign the element to it
 
