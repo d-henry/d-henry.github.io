@@ -7,18 +7,21 @@ These resources are for both Java and Python.
 
 ## Documentation
 
-[Python Doc's](https://www.python.org/doc/)
+[Python Docs](https://www.python.org/doc/)
 
-[Java Doc's](https://docs.oracle.com/en/java/)
+[Java Docs](https://docs.oracle.com/en/java/)
 
-[Selenium Doc's](https://www.selenium.dev/documentation/)
+[Selenium Docs](https://www.selenium.dev/documentation/)
 
 
 ## Recommended Reading 
 
-For Python I recommend the [**Python crash course (2nd edition)**](https://www.amazon.com/Python-Crash-Course-2nd-Edition/dp/1593279280/ref=sr_1_1?crid=2O2DHEM0XKEY5&keywords=python+crash+course&qid=1647877891&sprefix=python+crash+course%2Caps%2C132&sr=8-1) Textbook.
+For Python I recommend the [**Python crash course (2nd edition)**](https://www.amazon.com/Python-Crash-Course-2nd-Edition
+/dp/1593279280/ref=sr_1_1?crid=2O2DHEM0XKEY5&keywords=python+crash+course&
+qid=1647877891&sprefix=python+crash+course%2Caps%2C132&sr=8-1) Textbook.
 
-For Java i was mostly taught in university classes, however [this](https://www.w3schools.com/java/java_intro.asp) Is a decent introduction.
+For Java i was mostly taught in university classes, however [this](https://www.w3schools.com/java/java_intro.asp)
+ Is a decent introduction.
 
 For Selenium I recommend Tech With Tim's videos for an absolute beginner's introduction
 
@@ -55,6 +58,38 @@ Then we can select by visible text
 This will set is_enabled to either true or false, which we can then assert against using pytest
 
 `assert(is_enabled)`
+
+
+## Common issues and roadblocks
+
+- ElementNotFound Exceptions
+
+By far the most common issue you will ever see creating and maintaining Selenium Test Automation and one of the most
+annoying to try and fix. This exception occurs (usually) when the [WebDriver](https://www.selenium.dev/documentation
+/webdriver/_print/) attempts to access or manipulate an element that hasn't yet been loaded into the
+[DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/
+Introduction), or is not displayed.
+
+There are several things you should check here.
+
+First, is it a timing issue? Selenium has three types of [**waits**](https://www.selenium.dev/documentation/webdriver
+/waits/) built in for us to use, and it's important to understand
+all three.
+
++ [Explicit wait](https://www.selenium.dev/documentation/webdriver/waits/#explicit-wait)
+  , typically used as a wait until some condition is true. e.g element to be clickable / visible.
++ [Implicit wait](https://www.selenium.dev/documentation/webdriver/waits/#implicit-wait)
+  , used to wait for any element, this is more of a configuration setting then something you
+ actually do in code.
++ [Fluent wait](https://www.selenium.dev/documentation/webdriver/waits/#fluentwait), useful for ignoring
+   exceptions that may arise while waiting, such as ElementNotVisibleException or 
+  ElementNotSelectableException
+
+For more information on waits, please see the [Documentation](https://www.selenium.dev/documentation/webdriver
+/waits/)
+------------------------------------------------------------------------------------------
+
+
 
 
 
