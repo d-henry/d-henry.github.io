@@ -1,4 +1,5 @@
 site_name: Preacher's Docs
+site_url: https://preach-notes.us
 nav:
     - Home: index.md
     - Selenium: selenium.md
