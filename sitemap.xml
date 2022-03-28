@@ -11,7 +11,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://preach-notes.com/secret/</loc>
+         <lastmod>2022-03-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://preach-notes.com/selenium/</loc>
+         <lastmod>2022-03-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://preach-notes.com/todos/</loc>
          <lastmod>2022-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
