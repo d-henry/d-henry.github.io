@@ -13,6 +13,8 @@ These resources are for both Java and Python.
 
 [Selenium Docs](https://www.selenium.dev/documentation/)
 
+[Why POM?](https://www.guru99.com/page-object-model-pom-page-factory-in-selenium-ultimate-guide.html)
+
 
 ## Recommended Reading 
 
