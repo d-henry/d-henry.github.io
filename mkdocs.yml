@@ -3,6 +3,7 @@ site_url: https://preach-notes.com
 nav:
     - Home: index.md
     - Selenium: selenium.md
+    - Git: git.md
     - About: about.md
 theme:
     name: windmill-dark
