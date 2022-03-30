@@ -5,7 +5,7 @@ A list of resources, documentation, courses, and tips for selenium test automati
 
 These resources are for both Java and Python.
 
-## Documentation
+## Documentation and links
 
 [Python Docs](https://www.python.org/doc/)
 
@@ -14,6 +14,8 @@ These resources are for both Java and Python.
 [Selenium Docs](https://www.selenium.dev/documentation/)
 
 [Why POM?](https://www.guru99.com/page-object-model-pom-page-factory-in-selenium-ultimate-guide.html)
+
+[Sample Projects](https://github.com/d-henry/Selenium-Samples) W.I.P
 
 
 ## Recommended Reading 
