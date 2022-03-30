@@ -12,5 +12,7 @@
 
 - Process of getting an environment set up for working / Notes from my initiatory phase
 
+- Freelance opportunities? Upwork, Utest3 Testlio Userfeel (Testlio looks good)
+
 
 ------------------------------------------------------------------------------------------
