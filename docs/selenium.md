@@ -66,6 +66,42 @@ This will set is_enabled to either true or false, which we can then assert again
 
 `assert(is_enabled)`
 
+## Working with Waits to increase test reliability
+
+Selenium is renowned for being fragile and inconsistent. I aim to mitigate that as much as possible whenever I'm writing
+tests. The first thing I do to this end is to use unique id's whenever possible, the second, is to use waits.
+
+Here is an example of me accessing an element using a WebDriverWait in Java, which I'll break down and explain.
+
+`//locate the element`
+
+`WebElement settings_button = (new WebDriverWait(driver, 10))`
+`.until(ExpectedConditions.elementToBeClickable(By.id("settings_id")));`
+
+`//click the settings button`
+
+`settings_button.click();`
+
+Let's break this down...
+
+`WebElement settings_button =`
+Here i'm declaring a new WebElement object, named settings_button.
+
+`(New WebDriverWait(driver,10))`
+This bit is a new WebDriverWait object, into which we pass two parameters, 1. our webDriver and 2. a time to wait (in seconds)
+for an element to be found. If it takes our driver longer than this time to find the element an exception will be thrown.
+
+`.until(ExpectedConditions.elementToBeClickable`
+We tell the WebDriverWait to wait until the element is "clickable" meaning loaded, displayed, visible, and interactable.
+
+`(By.id("settings_id)));`
+Here we specify our locator type (id) and our desired elements id.
+
+`settings_button.click();`
+Finally we are ready to interact with our element.
+
+
+
 
 ## Common issues and roadblocks
 
