@@ -40,6 +40,8 @@
           ]},
           {title: "Basic Selenium Operations in Python", url: "#basic-selenium-operations-in-python", children: [
           ]},
+          {title: "Working with Waits to increase test reliability", url: "#working-with-waits-to-increase-test-reliability", children: [
+          ]},
           {title: "Common issues and roadblocks", url: "#common-issues-and-roadblocks", children: [
           ]},
           {title: "Why isn't intellisense working for selenium???", url: "#why-isnt-intellisense-working-for-selenium", children: [
@@ -138,6 +140,27 @@ qid=1647877891&amp;sprefix=python+crash+course%2Caps%2C132&amp;sr=8-1"><strong>P
 <p><code>is_enabled = some_element.is_enabled()</code></p>
 <p>This will set is_enabled to either true or false, which we can then assert against using pytest</p>
 <p><code>assert(is_enabled)</code></p>
+<h2 id="working-with-waits-to-increase-test-reliability">Working with Waits to increase test reliability</h2>
+<p>Selenium is renowned for being fragile and inconsistent. I aim to mitigate that as much as possible whenever I'm writing
+tests. The first thing I do to this end is to use unique id's whenever possible, the second, is to use waits.</p>
+<p>Here is an example of me accessing an element using a WebDriverWait in Java, which I'll break down and explain.</p>
+<p><code>//locate the element</code></p>
+<p><code>WebElement settings_button = (new WebDriverWait(driver, 10))</code>
+<code>.until(ExpectedConditions.elementToBeClickable(By.id("settings_id")));</code></p>
+<p><code>//click the settings button</code></p>
+<p><code>settings_button.click();</code></p>
+<p>Let's break this down...</p>
+<p><code>WebElement settings_button =</code>
+Here i'm declaring a new WebElement object, named settings_button.</p>
+<p><code>(New WebDriverWait(driver,10))</code>
+This bit is a new WebDriverWait object, into which we pass two parameters, 1. our webDriver and 2. a time to wait (in seconds)
+for an element to be found. If it takes our driver longer than this time to find the element an exception will be thrown.</p>
+<p><code>.until(ExpectedConditions.elementToBeClickable</code>
+We tell the WebDriverWait to wait until the element is "clickable" meaning loaded, displayed, visible, and interactable.</p>
+<p><code>(By.id("settings_id)));</code>
+Here we specify our locator type (id) and our desired elements id.</p>
+<p><code>settings_button.click();</code>
+Finally we are ready to interact with our element.</p>
 <h2 id="common-issues-and-roadblocks">Common issues and roadblocks</h2>
 <ul>
 <li>ElementNotFound Exceptions</li>
