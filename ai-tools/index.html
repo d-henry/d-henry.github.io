@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://preach-notes.com/ai-tools/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>AI Tools - Preacher's Docs</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "AI Tools for QA Engineers", url: "#_top", children: [
+          ]},
+          {title: "Tools I Use", url: "#tools-i-use", children: [
+          ]},
+          {title: "Claude Code", url: "#claude-code", children: [
+          ]},
+          {title: "GitHub Copilot", url: "#github-copilot", children: [
+          ]},
+          {title: "Ollama + Local LLMs", url: "#ollama-local-llms", children: [
+          ]},
+          {title: "Practical AI Workflow for Test Automation", url: "#practical-ai-workflow-for-test-automation", children: [
+          ]},
+          {title: "What AI Won\u0027t Do For You", url: "#what-ai-wont-do-for-you", children: [
+          ]},
+          {title: "Links", url: "#links", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../git/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../git/" class="btn btn-xs btn-link">
+        Git
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h2 id="ai-tools-for-qa-engineers">AI Tools for QA Engineers</h2>
+<p>Notes on how I use AI tools in my day-to-day testing and automation work. This isn't about AI testing AI — it's about using LLMs as a force multiplier in a QA automation workflow.</p>
+<p>At Optilogic I've led efforts to adopt and standardize AI tooling across the QA team, including Claude Code, GitHub Copilot, and local LLMs via Ollama.</p>
+<hr />
+<h2 id="tools-i-use">Tools I Use</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Type</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Code</td>
+<td>Agentic CLI (Anthropic)</td>
+<td>Complex multi-file tasks, refactoring, code review</td>
+</tr>
+<tr>
+<td>GitHub Copilot</td>
+<td>IDE autocomplete + chat</td>
+<td>In-editor suggestions, quick generation</td>
+</tr>
+<tr>
+<td>Ollama + Local LLM</td>
+<td>Self-hosted</td>
+<td>Sensitive codebases, offline use, experimentation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="claude-code">Claude Code</h2>
+<p><a href="https://claude.ai/code">Claude Code</a> is an agentic CLI tool from Anthropic. Unlike Copilot, it can read the full codebase, run commands, edit multiple files, and reason across a whole task — not just complete the next line.</p>
+<p><strong>What I use it for in QA:</strong></p>
+<ul>
+<li><strong>Scaffolding test suites</strong> — Give it a feature spec or API schema, ask it to generate a full Pytest + Playwright test file with fixtures and page objects.</li>
+<li><strong>Refactoring legacy tests</strong> — Point it at an old Selenium Java suite and have it convert patterns to modern equivalents.</li>
+<li><strong>Generating test data</strong> — Ask it to write factory functions or seed scripts based on a data model.</li>
+<li><strong>Writing documentation</strong> — First drafts of onboarding docs, README files, and inline comments.</li>
+<li><strong>Code review</strong> — Ask it to review a PR diff for test coverage gaps, flaky test patterns, or missing assertions.</li>
+</ul>
+<p><strong>Tips:</strong>
+- Give it context upfront — tell it your framework, language, and conventions before asking it to generate code.
+- Review everything it writes. It's fast but not infallible, especially on domain-specific logic.
+- Use it for the boring parts: boilerplate, repetitive patterns, and first drafts. You still own the quality.</p>
+<hr />
+<h2 id="github-copilot">GitHub Copilot</h2>
+<p>Copilot lives in the IDE and shines at in-context autocomplete and quick generation. It's faster than Claude Code for single-file work where you already know what you want.</p>
+<p><strong>What I use it for:</strong></p>
+<ul>
+<li>Completing repetitive test methods (it learns your patterns within the file)</li>
+<li>Generating docstrings and comments</li>
+<li>Quick one-off scripts</li>
+<li>Inline chat for "what does this do" questions</li>
+</ul>
+<p><strong>Tips:</strong>
+- It works best when the file already has examples to learn from. Write one test well and it will pattern-match the rest.
+- Use the chat panel for explanations; use autocomplete for generation.
+- Be skeptical of its assertions and imports — verify they're correct for your specific version of a library.</p>
+<hr />
+<h2 id="ollama-local-llms">Ollama + Local LLMs</h2>
+<p><a href="https://ollama.com/">Ollama</a> lets you run LLMs locally. Useful when:
+- You're working with sensitive internal code you can't send to a cloud API
+- You want to experiment with models (Mistral, Llama, Qwen, etc.) without API costs
+- You need offline access</p>
+<pre><code class="language-bash"># Install and run a model
+ollama pull llama3.2
+ollama run llama3.2
+</code></pre>
+<p>Local models are weaker than Claude or GPT-4 for complex reasoning, but for code explanation, simple generation, and documentation they're useful and free after the initial setup.</p>
+<p>Models worth trying for code work:
+- <strong>Qwen2.5-Coder</strong> — strong on code tasks
+- <strong>Mistral</strong> — good general-purpose, fast
+- <strong>Llama 3.2</strong> — solid reasoning, Meta's open model</p>
+<hr />
+<h2 id="practical-ai-workflow-for-test-automation">Practical AI Workflow for Test Automation</h2>
+<p>This is roughly how I integrate AI into a testing task:</p>
+<ol>
+<li><strong>Understand the feature first</strong> — read the ticket, talk to a dev, look at the code. AI is faster when you already know what to ask.</li>
+<li><strong>Use Claude Code to scaffold</strong> — generate the skeleton of the test file, page objects, and fixtures.</li>
+<li><strong>Fill in with Copilot</strong> — let it autocomplete the repetitive parts as you work through the file.</li>
+<li><strong>Review and run</strong> — always run the tests. AI-generated tests can be syntactically correct but logically wrong.</li>
+<li><strong>Iterate</strong> — if a test is flaky or the assertions are weak, ask Claude Code to review it.</li>
+</ol>
+<hr />
+<h2 id="what-ai-wont-do-for-you">What AI Won't Do For You</h2>
+<ul>
+<li>It won't understand your product. You still need domain knowledge to write meaningful tests.</li>
+<li>It won't catch logic bugs in the code under test — it can only test what you tell it to test.</li>
+<li>It won't keep tests maintainable. Over-generated test suites become a maintenance burden.</li>
+<li>It hallucinates APIs and method signatures — always verify against real docs.</li>
+</ul>
+<p>The goal is to spend less time on boilerplate and more time on thinking about what actually needs to be tested.</p>
+<hr />
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code Docs</a></li>
+<li><a href="https://github.com/features/copilot">GitHub Copilot</a></li>
+<li><a href="https://ollama.com/">Ollama</a></li>
+<li><a href="https://docs.anthropic.com/">Anthropic API Docs</a></li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../git/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../git/" class="btn btn-xs btn-link">
+        Git
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

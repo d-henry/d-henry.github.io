@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://preach-notes.com/api-testing/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>API Testing - Preacher's Docs</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "API Testing Resources", url: "#_top", children: [
+          ]},
+          {title: "Documentation and Links", url: "#documentation-and-links", children: [
+          ]},
+          {title: "Tools Overview", url: "#tools-overview", children: [
+          ]},
+          {title: "Postman", url: "#postman", children: [
+          ]},
+          {title: "Playwright API Testing (Python)", url: "#playwright-api-testing-python", children: [
+          ]},
+          {title: "requests + pytest (Lightweight Python)", url: "#requests-pytest-lightweight-python", children: [
+          ]},
+          {title: "REST Assured (Java)", url: "#rest-assured-java", children: [
+          ]},
+          {title: "Common Patterns", url: "#common-patterns", children: [
+              {title: "Authentication", url: "#authentication" },
+              {title: "Response Validation", url: "#response-validation" },
+              {title: "Test Data Isolation", url: "#test-data-isolation" },
+          ]},
+          {title: "CI/CD Integration", url: "#cicd-integration", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../git/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../git/" class="btn btn-xs btn-link">
+        Git
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../selenium/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../selenium/" class="btn btn-xs btn-link">
+        Selenium
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h2 id="api-testing-resources">API Testing Resources</h2>
+<p>Notes and patterns for API test automation. I've worked with API testing across multiple roles — from Postman collections at Sorenson Communications to Playwright's API client in my current stack.</p>
+<hr />
+<h2 id="documentation-and-links">Documentation and Links</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/getting-started/introduction/">Postman Docs</a></li>
+<li><a href="https://rest-assured.io/">REST Assured</a></li>
+<li><a href="https://playwright.dev/docs/api-testing">Playwright API Testing</a></li>
+<li><a href="https://httpie.io/">HTTPie</a> — great CLI tool for quick manual API checks</li>
+<li><a href="https://json-schema.org/">JSON Schema</a> — for response validation</li>
+</ul>
+<hr />
+<h2 id="tools-overview">Tools Overview</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Language</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Postman</td>
+<td>N/A (GUI)</td>
+<td>Exploration, collections, manual testing</td>
+</tr>
+<tr>
+<td>REST Assured</td>
+<td>Java</td>
+<td>API tests alongside Selenium Java suites</td>
+</tr>
+<tr>
+<td>Playwright APIRequestContext</td>
+<td>Python/TS</td>
+<td>API tests alongside UI Playwright suites</td>
+</tr>
+<tr>
+<td>requests + pytest</td>
+<td>Python</td>
+<td>Lightweight standalone API test suites</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="postman">Postman</h2>
+<p>Postman is where most API testing starts — great for exploring endpoints before you automate.</p>
+<p>Key things to know:</p>
+<ul>
+<li><strong>Collections</strong> — Group requests into collections and run them as a suite with the Collection Runner.</li>
+<li><strong>Environments</strong> — Use environment variables (<code>{{base_url}}</code>, <code>{{token}}</code>) so collections are portable across dev/staging/prod.</li>
+<li><strong>Pre-request Scripts</strong> — Run JavaScript before a request, e.g., to generate auth tokens.</li>
+<li><strong>Tests tab</strong> — Write assertions in JavaScript that run after each request.</li>
+</ul>
+<pre><code class="language-javascript">// Postman test example
+pm.test(&quot;Status is 200&quot;, () =&gt; {
+    pm.response.to.have.status(200);
+});
+
+pm.test(&quot;Response has user ID&quot;, () =&gt; {
+    const body = pm.response.json();
+    pm.expect(body.id).to.be.a(&quot;number&quot;);
+});
+</code></pre>
+<ul>
+<li><strong>Newman</strong> — Run Postman collections from the command line or CI/CD pipelines.</li>
+</ul>
+<pre><code class="language-bash">newman run collection.json -e environment.json
+</code></pre>
+<hr />
+<h2 id="playwright-api-testing-python">Playwright API Testing (Python)</h2>
+<p>Playwright's <code>APIRequestContext</code> lets you make HTTP calls directly, useful when:
+- You need to set up test data via API before a UI test
+- You want pure API tests in the same framework as your UI tests</p>
+<pre><code class="language-python">import pytest
+from playwright.sync_api import Playwright
+
+@pytest.fixture
+def api(playwright: Playwright):
+    context = playwright.request.new_context(
+        base_url=&quot;https://api.example.com&quot;,
+        extra_http_headers={&quot;Authorization&quot;: &quot;Bearer my-token&quot;}
+    )
+    yield context
+    context.dispose()
+
+def test_get_user(api):
+    response = api.get(&quot;/users/1&quot;)
+    assert response.status == 200
+    body = response.json()
+    assert body[&quot;name&quot;] == &quot;Dylan&quot;
+
+def test_create_user(api):
+    response = api.post(&quot;/users&quot;, data={&quot;name&quot;: &quot;New User&quot;, &quot;role&quot;: &quot;tester&quot;})
+    assert response.status == 201
+</code></pre>
+<hr />
+<h2 id="requests-pytest-lightweight-python">requests + pytest (Lightweight Python)</h2>
+<p>For standalone API test suites without UI testing, <code>requests</code> + <code>pytest</code> is minimal and effective.</p>
+<pre><code class="language-python">import requests
+import pytest
+
+BASE_URL = &quot;https://api.example.com&quot;
+
+@pytest.fixture(scope=&quot;session&quot;)
+def auth_token():
+    response = requests.post(f&quot;{BASE_URL}/auth/login&quot;, json={
+        &quot;username&quot;: &quot;testuser&quot;,
+        &quot;password&quot;: &quot;password&quot;
+    })
+    return response.json()[&quot;token&quot;]
+
+def test_get_users(auth_token):
+    headers = {&quot;Authorization&quot;: f&quot;Bearer {auth_token}&quot;}
+    response = requests.get(f&quot;{BASE_URL}/users&quot;, headers=headers)
+    assert response.status_code == 200
+    assert isinstance(response.json(), list)
+</code></pre>
+<hr />
+<h2 id="rest-assured-java">REST Assured (Java)</h2>
+<p>Used this alongside Selenium/Java suites. REST Assured uses a fluent given/when/then style that reads cleanly.</p>
+<pre><code class="language-java">import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
+
+@Test
+public void testGetUser() {
+    given()
+        .header(&quot;Authorization&quot;, &quot;Bearer &quot; + token)
+    .when()
+        .get(&quot;/users/1&quot;)
+    .then()
+        .statusCode(200)
+        .body(&quot;id&quot;, equalTo(1))
+        .body(&quot;name&quot;, notNullValue());
+}
+</code></pre>
+<hr />
+<h2 id="common-patterns">Common Patterns</h2>
+<h3 id="authentication">Authentication</h3>
+<p>Most APIs use one of these:
+- <strong>Bearer token</strong> — set in <code>Authorization</code> header
+- <strong>API Key</strong> — query param or header (depends on the API)
+- <strong>Basic Auth</strong> — base64 encoded <code>username:password</code></p>
+<p>Always pull credentials from environment variables, not hardcoded in tests.</p>
+<pre><code class="language-python">import os
+TOKEN = os.environ[&quot;API_TOKEN&quot;]
+</code></pre>
+<h3 id="response-validation">Response Validation</h3>
+<p>Don't just check status codes. Validate:
+- Response body structure (required fields present)
+- Data types match expectations
+- Business logic (e.g., returned user ID matches what you requested)</p>
+<h3 id="test-data-isolation">Test Data Isolation</h3>
+<p>API tests can leave dirty state. Either:
+- Create and delete test data within each test
+- Use a dedicated test environment that gets reset on each run
+- Use database seeding scripts in CI before the test run</p>
+<hr />
+<h2 id="cicd-integration">CI/CD Integration</h2>
+<p>At Sorenson, I ran Postman collections via Newman in Jenkins pipelines. At Optilogic, API tests run as part of the Pytest suite in GitHub Actions alongside UI tests — same pipeline, same reports.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../git/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../git/" class="btn btn-xs btn-link">
+        Git
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../selenium/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../selenium/" class="btn btn-xs btn-link">
+        Selenium
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>
