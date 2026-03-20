@@ -1,0 +1,53 @@
+/* Preacher's Docs - Custom Styles */
+
+:root {
+    --md-primary-fg-color: #1A1B1B;
+    --md-primary-bg-color: #ffffff;
+    --md-accent-fg-color: #9DDF52;
+}
+
+/* Green accent on links and highlights */
+.md-typeset a {
+    color: #9DDF52;
+}
+
+.md-typeset a:hover {
+    color: #b8e880;
+}
+
+/* Headings */
+.md-typeset h1 {
+    color: #9DDF52;
+    border-bottom: 2px solid #9DDF52;
+    padding-bottom: 8px;
+}
+
+.md-typeset h2 {
+    color: #9DDF52;
+}
+
+.md-typeset h3,
+.md-typeset h4 {
+    color: #b8e880;
+}
+
+/* Inline code */
+.md-typeset code {
+    color: #9DDF52;
+    background-color: #252930;
+}
+
+/* Code blocks - left border accent */
+.md-typeset pre {
+    border-left: 3px solid #9DDF52;
+}
+
+/* Nav sidebar active item */
+.md-nav__link--active {
+    color: #9DDF52 !important;
+    font-weight: 500;
+}
+
+.md-nav__link:hover {
+    color: #9DDF52;
+}
