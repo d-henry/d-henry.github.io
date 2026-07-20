@@ -1,0 +1,1749 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://preach-notes.com/obsidian-sync/">
+      
+      
+        <link rel="prev" href="../ai-tools/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Obsidian + GitHub Sync - Preacher's Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="light-green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#obsidian-github-sync-a-complete-setup-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Preacher&#39;s Docs" class="md-header__button md-logo" aria-label="Preacher's Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Preacher's Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Obsidian + GitHub Sync
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Preacher&#39;s Docs" class="md-nav__button md-logo" aria-label="Preacher's Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Preacher's Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Testing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../playwright/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Playwright
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../selenium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Selenium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Obsidian + GitHub Sync
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Obsidian + GitHub Sync
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youre-actually-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You're Actually Building
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-create-your-github-account-and-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Create Your GitHub Account and Repository
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1: Create Your GitHub Account and Repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-create-a-github-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1.1 — Create a GitHub account
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-create-a-new-repository-for-your-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1.2 — Create a new repository for your notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-install-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Install Git
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: Install Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mac
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-it-worked-all-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify it worked (all platforms)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-set-up-authentication-personal-access-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Set Up Authentication (Personal Access Token)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 3: Set Up Authentication (Personal Access Token)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-31-generate-the-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3.1 — Generate the token
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-install-obsidian-and-create-your-vault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Install Obsidian and Create Your Vault
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 4: Install Obsidian and Create Your Vault">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-41-install-obsidian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4.1 — Install Obsidian
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-42-create-a-new-vault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4.2 — Create a new vault
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-5-install-the-obsidian-git-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 5: Install the Obsidian Git Plugin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 5: Install the Obsidian Git Plugin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-51-enable-community-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5.1 — Enable community plugins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-52-install-the-git-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5.2 — Install the "Git" plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-6-connect-your-vault-to-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 6: Connect Your Vault to GitHub
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 6: Connect Your Vault to GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-61-point-your-vault-at-the-github-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6.1 — Point your vault at the GitHub repo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-62-bring-over-your-existing-notes-if-you-have-any" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6.2 — Bring over your existing notes (if you have any)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-63-tell-git-to-ignore-a-couple-of-noisy-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6.3 — Tell Git to ignore a couple of noisy files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-64-do-your-first-backup-commit-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6.4 — Do your first backup (commit + push)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-7-set-up-automatic-syncing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 7: Set Up Automatic Syncing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-8-add-a-second-device-phone-or-another-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 8: Add a Second Device (Phone or Another Computer)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 8: Add a Second Device (Phone or Another Computer)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-another-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On another computer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-your-phone-ios-or-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On your phone (iOS or Android)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-9-what-to-do-if-you-get-a-merge-conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 9: What to Do If You Get a Merge Conflict
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-the-only-commands-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference: The Only Commands You Need
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-doing-it-from-the-command-line-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix: Doing It From the Command Line (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-a-plugin-worth-trying-once-youre-set-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional: A Plugin Worth Trying Once You're Set Up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youre-actually-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You're Actually Building
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-create-your-github-account-and-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Create Your GitHub Account and Repository
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1: Create Your GitHub Account and Repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-create-a-github-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1.1 — Create a GitHub account
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-create-a-new-repository-for-your-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1.2 — Create a new repository for your notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-install-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Install Git
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: Install Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mac
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-it-worked-all-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify it worked (all platforms)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-set-up-authentication-personal-access-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Set Up Authentication (Personal Access Token)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 3: Set Up Authentication (Personal Access Token)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-31-generate-the-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3.1 — Generate the token
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-install-obsidian-and-create-your-vault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Install Obsidian and Create Your Vault
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 4: Install Obsidian and Create Your Vault">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-41-install-obsidian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4.1 — Install Obsidian
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-42-create-a-new-vault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4.2 — Create a new vault
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-5-install-the-obsidian-git-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 5: Install the Obsidian Git Plugin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 5: Install the Obsidian Git Plugin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-51-enable-community-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5.1 — Enable community plugins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-52-install-the-git-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5.2 — Install the "Git" plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-6-connect-your-vault-to-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 6: Connect Your Vault to GitHub
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 6: Connect Your Vault to GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-61-point-your-vault-at-the-github-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6.1 — Point your vault at the GitHub repo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-62-bring-over-your-existing-notes-if-you-have-any" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6.2 — Bring over your existing notes (if you have any)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-63-tell-git-to-ignore-a-couple-of-noisy-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6.3 — Tell Git to ignore a couple of noisy files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-64-do-your-first-backup-commit-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6.4 — Do your first backup (commit + push)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-7-set-up-automatic-syncing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 7: Set Up Automatic Syncing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-8-add-a-second-device-phone-or-another-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 8: Add a Second Device (Phone or Another Computer)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 8: Add a Second Device (Phone or Another Computer)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-another-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On another computer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-your-phone-ios-or-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On your phone (iOS or Android)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-9-what-to-do-if-you-get-a-merge-conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 9: What to Do If You Get a Merge Conflict
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-the-only-commands-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference: The Only Commands You Need
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-doing-it-from-the-command-line-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix: Doing It From the Command Line (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-a-plugin-worth-trying-once-youre-set-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional: A Plugin Worth Trying Once You're Set Up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="obsidian-github-sync-a-complete-setup-guide">Obsidian + GitHub Sync: A Complete Setup Guide</h1>
+<p>This guide walks you through setting up <a href="https://obsidian.md/">Obsidian</a> so your notes automatically sync across multiple devices using GitHub — completely free, with no paid sync subscription required.</p>
+<p><strong>No programming or Git experience needed.</strong> Every step is spelled out. If you've never opened a terminal in your life, you can still do this — we'll use point-and-click tools the whole way through, with an optional command-line appendix at the end for anyone curious.</p>
+<hr />
+<h2 id="what-youre-actually-building">What You're Actually Building</h2>
+<p>Before diving in, here's the mental model:</p>
+<ul>
+<li><strong>Obsidian</strong> is just a note-taking app that stores your notes as plain text files in a folder on your computer (called a "vault").</li>
+<li><strong>GitHub</strong> is a free online storage service built for tracking changes to files. We're going to (ab)use it as a private backup + sync location for your notes folder.</li>
+<li><strong>Git</strong> is the tool that moves your notes back and forth between your computer and GitHub. Think of it like a very smart, very safe version of copy-paste that also keeps a history of every change.</li>
+<li>The <strong>Obsidian Git plugin</strong> does all the Git work for you with a couple of clicks — you will almost never need to type a Git command.</li>
+</ul>
+<p>Once set up: you write notes on your laptop, the plugin uploads them to GitHub. You open Obsidian on your phone or another computer, the plugin downloads the latest notes. That's the whole workflow.</p>
+<hr />
+<h2 id="part-1-create-your-github-account-and-repository">Part 1: Create Your GitHub Account and Repository</h2>
+<h3 id="step-11-create-a-github-account">Step 1.1 — Create a GitHub account</h3>
+<ol>
+<li>Go to <a href="https://github.com/">github.com</a> in your web browser.</li>
+<li>Click <strong>Sign up</strong> in the top-right corner.</li>
+<li>Enter your email, create a password, and pick a username.</li>
+<li>Verify your email address when GitHub sends you a confirmation link.</li>
+</ol>
+<h3 id="step-12-create-a-new-repository-for-your-notes">Step 1.2 — Create a new repository for your notes</h3>
+<p>A "repository" (or "repo") is just a project folder on GitHub.</p>
+<ol>
+<li>Once logged in, click the <strong>+</strong> icon in the top-right corner of the page, then click <strong>New repository</strong>.</li>
+<li>Under <strong>Repository name</strong>, type something like <code>obsidian-vault</code> (no spaces — use a hyphen instead).</li>
+<li>Set the repository to <strong>Private</strong>. This is important — your notes should not be public. Click the <strong>Private</strong> radio button.</li>
+<li>Leave <strong>"Add a README file"</strong> checked — this gives the repo an initial file so it isn't empty.</li>
+<li>Click the green <strong>Create repository</strong> button at the bottom.</li>
+</ol>
+<p>You now have an empty, private, online folder ready to hold your notes. Leave this browser tab open — you'll come back to it.</p>
+<hr />
+<h2 id="part-2-install-git">Part 2: Install Git</h2>
+<p>The Obsidian Git plugin needs the actual Git program installed on your computer to work behind the scenes, even though you won't type Git commands yourself.</p>
+<h3 id="windows">Windows</h3>
+<ol>
+<li>Go to <a href="https://git-scm.com/downloads">git-scm.com/downloads</a>.</li>
+<li>Click <strong>Windows</strong>, then download the 64-bit installer.</li>
+<li>Run the installer. On every screen, the default options are fine — just keep clicking <strong>Next</strong>, then <strong>Install</strong>.</li>
+<li>When it finishes, click <strong>Finish</strong>.</li>
+</ol>
+<h3 id="mac">Mac</h3>
+<ol>
+<li>Open the <strong>Terminal</strong> app (press <code>Cmd + Space</code>, type "Terminal", press Enter).</li>
+<li>Type <code>git --version</code> and press Enter.</li>
+<li>If Git isn't already installed, macOS will pop up a prompt asking to install the "Command Line Developer Tools." Click <strong>Install</strong> and wait for it to finish.</li>
+</ol>
+<h3 id="verify-it-worked-all-platforms">Verify it worked (all platforms)</h3>
+<ul>
+<li><strong>Windows:</strong> Open the Start menu, search for "Git Bash," and open it. Type <code>git --version</code> and press Enter. You should see something like <code>git version 2.44.0</code>.</li>
+<li><strong>Mac:</strong> In Terminal, type <code>git --version</code> and press Enter.</li>
+</ul>
+<p>If you see a version number, Git is installed correctly. You will not need to use this window again — the Obsidian plugin handles everything from here.</p>
+<hr />
+<h2 id="part-3-set-up-authentication-personal-access-token">Part 3: Set Up Authentication (Personal Access Token)</h2>
+<p>GitHub no longer accepts your account password for Git operations — you need a <strong>Personal Access Token (PAT)</strong> instead. Think of it as a special, revocable password just for Git.</p>
+<h3 id="step-31-generate-the-token">Step 3.1 — Generate the token</h3>
+<ol>
+<li>On GitHub, click your profile picture (top-right) → <strong>Settings</strong>.</li>
+<li>Scroll to the bottom of the left sidebar and click <strong>Developer settings</strong>.</li>
+<li>Click <strong>Personal access tokens</strong> → <strong>Tokens (classic)</strong>.</li>
+<li>Click <strong>Generate new token</strong> → <strong>Generate new token (classic)</strong>.</li>
+<li>Under <strong>Note</strong>, type something like <code>Obsidian Vault Sync</code> so you remember what it's for.</li>
+<li>Under <strong>Expiration</strong>, choose <strong>No expiration</strong> (simplest for personal use) or a long duration like 1 year if you'd rather rotate it periodically.</li>
+<li>Under <strong>Select scopes</strong>, check the box next to <strong>repo</strong> (this automatically checks all the sub-boxes under it).</li>
+<li>Scroll down and click <strong>Generate token</strong>.</li>
+<li><strong>Important:</strong> GitHub shows you the token exactly once. Click the copy icon next to it and paste it somewhere safe temporarily (a password manager, or a sticky note you'll delete after this setup) — you'll need it in the next steps and you cannot view it again after leaving this page.</li>
+</ol>
+<p>If you ever lose it, you can just generate a new one and repeat the setup — it costs nothing to redo.</p>
+<blockquote>
+<p><strong>Security note:</strong> "No expiration" means this token can read and write your notes repo forever until you manually delete it. That's fine for a personal setup, but if you ever lose a device or stop using it, go revoke the token: <strong>Settings → Developer settings → Personal access tokens → Tokens (classic)</strong>, find it in the list, and click <strong>Delete</strong>. That immediately cuts off access from anything using that token.</p>
+</blockquote>
+<hr />
+<h2 id="part-4-install-obsidian-and-create-your-vault">Part 4: Install Obsidian and Create Your Vault</h2>
+<h3 id="step-41-install-obsidian">Step 4.1 — Install Obsidian</h3>
+<ol>
+<li>Go to <a href="https://obsidian.md/">obsidian.md</a> and click <strong>Get Obsidian</strong>.</li>
+<li>Download and install the version for your operating system (Windows, Mac, or mobile).</li>
+<li>Open Obsidian.</li>
+</ol>
+<h3 id="step-42-create-a-new-vault">Step 4.2 — Create a new vault</h3>
+<ol>
+<li>On the welcome screen, click <strong>Create new vault</strong>.</li>
+<li>Give it a name (e.g., <code>Notes</code>).</li>
+<li>Choose where to save it on your computer — the default location is fine.</li>
+<li>Click <strong>Create</strong>.</li>
+</ol>
+<p>You now have a working notes app with an empty vault, unrelated to GitHub so far. Let's connect them.</p>
+<hr />
+<h2 id="part-5-install-the-obsidian-git-plugin">Part 5: Install the Obsidian Git Plugin</h2>
+<h3 id="step-51-enable-community-plugins">Step 5.1 — Enable community plugins</h3>
+<ol>
+<li>In Obsidian, click the <strong>gear icon</strong> (Settings) in the lower-left corner.</li>
+<li>Click <strong>Community plugins</strong> in the left sidebar.</li>
+<li>If you see a warning about restricted mode, click <strong>Turn on community plugins</strong> and confirm.</li>
+</ol>
+<h3 id="step-52-install-the-git-plugin">Step 5.2 — Install the "Git" plugin</h3>
+<ol>
+<li>Still in <strong>Community plugins</strong>, click <strong>Browse</strong>.</li>
+<li>In the search box, type <code>Git</code>.</li>
+<li>Find the plugin literally named <strong>Git</strong> (by Vinzent, sometimes shown as "Obsidian Git"). Click on it.</li>
+<li>Click <strong>Install</strong>.</li>
+<li>Once installed, click <strong>Enable</strong>.</li>
+</ol>
+<p>You'll now see a new <strong>Git</strong> section in your left sidebar settings, and new Git-related commands available.</p>
+<hr />
+<h2 id="part-6-connect-your-vault-to-github">Part 6: Connect Your Vault to GitHub</h2>
+<p>This is the step that links your local notes folder to the GitHub repository you created in Part 1.</p>
+<h3 id="step-61-point-your-vault-at-the-github-repo">Step 6.1 — Point your vault at the GitHub repo</h3>
+<p>Because your vault folder already has notes (even if just the welcome note) and your GitHub repo already has a README, we need to link them together. The simplest reliable way for a first-timer is to clone the GitHub repo directly into place using the plugin's built-in clone command:</p>
+<ol>
+<li>In Obsidian, press <code>Ctrl + P</code> (Windows) or <code>Cmd + P</code> (Mac) to open the <strong>Command palette</strong>.</li>
+<li>Type <code>Git: Clone an existing remote repo</code> and select it.</li>
+<li>It will ask for the repository URL. Go back to your GitHub repo's page in the browser, click the green <strong>Code</strong> button, and copy the <strong>HTTPS</strong> URL (looks like <code>https://github.com/yourusername/obsidian-vault.git</code>).</li>
+<li>Paste that URL into Obsidian's prompt and press Enter.</li>
+<li>It will ask for a folder location — choose a <strong>new, empty folder</strong> (not your existing vault folder). For example, choose to create a folder called <code>Notes-Synced</code> on your Desktop.</li>
+<li>The first time you do this, Obsidian/Git will prompt you for credentials:</li>
+<li><strong>Username:</strong> your GitHub username.</li>
+<li><strong>Password:</strong> paste the <strong>Personal Access Token</strong> you generated in Part 3 (not your actual GitHub password).</li>
+<li>Once cloning finishes, open that new folder as your Obsidian vault: <strong>File → Open another vault → Open folder as vault</strong>, and select the folder you just cloned into.</li>
+</ol>
+<blockquote>
+<p><strong>Why clone into a new folder instead of linking your existing vault directly?</strong> Git needs the folder to match what's on GitHub exactly when it starts tracking it. Starting from a fresh clone avoids confusing merge conflicts on your very first sync. It's an extra step now that saves you a headache later.</p>
+</blockquote>
+<h3 id="step-62-bring-over-your-existing-notes-if-you-have-any">Step 6.2 — Bring over your existing notes (if you have any)</h3>
+<p>If you already had a vault with notes in it before starting this guide, move them into the new Git-connected vault now:</p>
+<ol>
+<li>Open your <strong>old</strong> vault's folder in your computer's file explorer (Finder on Mac, File Explorer on Windows). In Obsidian, you can find it via <strong>Settings → About → Show/Open vault folder</strong> while that old vault is open.</li>
+<li>Select all your note files and any attachment folders (images, PDFs, etc.) — everything <em>except</em> the hidden <code>.obsidian</code> folder for now.</li>
+<li>Copy those files and paste them into your <strong>new</strong>, Git-connected vault folder (the one you cloned in Step 6.1).</li>
+<li>If you had custom settings, themes, or plugins configured in your old vault and want to keep them, you can also copy over the old <code>.obsidian</code> folder — but do this <em>before</em> Step 6.3 below, so the file we're about to create can exclude the parts of it that shouldn't be synced.</li>
+</ol>
+<p>From this point forward, <strong>the new cloned folder is your permanent vault</strong> — always open Obsidian to this one, and it's safe to delete the old one once you've confirmed everything moved over correctly.</p>
+<h3 id="step-63-tell-git-to-ignore-a-couple-of-noisy-files">Step 6.3 — Tell Git to ignore a couple of noisy files</h3>
+<p>Obsidian keeps track of things like which panes and tabs you have open in a file called <code>.obsidian/workspace.json</code>. That file changes almost every time you touch Obsidian — even just clicking around — which means if you sync it, you'll get pointless "conflicts" between your devices over things like window layout instead of actual notes. We want Git to ignore it.</p>
+<ol>
+<li>In your file explorer, go into your new vault folder.</li>
+<li>Create a new plain text file named exactly <code>.gitignore</code> (note the leading dot, and no <code>.txt</code> at the end — on Windows you may need to name it <code>.gitignore.</code> with a trailing dot to stop Explorer from renaming it).</li>
+<li>Open it in any text editor and add these two lines:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.obsidian/workspace.json
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>.obsidian/workspace-mobile.json
+</code></pre></div>
+<ol>
+<li>Save the file.</li>
+</ol>
+<p>This only needs to be done once — it travels with the repo to every device once you push it.</p>
+<blockquote>
+<p><strong>Heads up on attachments:</strong> GitHub rejects any individual file over 100MB and warns you above 50MB. If you keep large videos or big PDFs as note attachments, they may fail to sync — this setup is best suited for text notes and reasonably-sized images.</p>
+</blockquote>
+<h3 id="step-64-do-your-first-backup-commit-push">Step 6.4 — Do your first backup (commit + push)</h3>
+<p>"Commit" means "save a snapshot of my changes." "Push" means "upload that snapshot to GitHub."</p>
+<ol>
+<li>Open the Command palette (<code>Ctrl/Cmd + P</code>).</li>
+<li>Type <code>Git: Commit all changes</code> and press Enter. A box pops up for a commit message — type something like <code>Initial notes</code> and press Enter/click the checkmark.</li>
+<li>Open the Command palette again and type <code>Git: Push</code> and press Enter.</li>
+<li>If prompted for credentials again, use your GitHub username and the Personal Access Token (same as before).</li>
+</ol>
+<p>Go check your GitHub repository page in the browser and refresh it — you should see your notes files listed there now. That confirms sync is working.</p>
+<hr />
+<h2 id="part-7-set-up-automatic-syncing">Part 7: Set Up Automatic Syncing</h2>
+<p>Rather than manually committing and pushing every time, let the plugin do it for you.</p>
+<ol>
+<li>Open Obsidian <strong>Settings → Git</strong> (in the plugin list on the left, it should appear as its own settings tab once enabled).</li>
+<li>Find <strong>Vault backup interval (minutes)</strong> and set it to something like <code>10</code>. This makes the plugin automatically commit and push your changes every 10 minutes if anything changed.</li>
+<li>Find <strong>Auto pull interval (minutes)</strong> and set it similarly (e.g., <code>10</code>). This automatically downloads changes made from other devices.</li>
+<li>Optional but recommended: enable <strong>Pull changes before push</strong> and <strong>Push on backup</strong> if you see those toggles — this reduces the odds of conflicts.</li>
+</ol>
+<p>With this on, you can mostly forget Git exists. Just write notes; the plugin syncs in the background.</p>
+<hr />
+<h2 id="part-8-add-a-second-device-phone-or-another-computer">Part 8: Add a Second Device (Phone or Another Computer)</h2>
+<h3 id="on-another-computer">On another computer</h3>
+<p>Repeat <strong>Part 2</strong> (install Git), <strong>Part 4</strong> (install Obsidian), and <strong>Part 5</strong> (install the Git plugin). Then instead of creating a new vault, use the same clone step from <strong>Part 6.1</strong> to pull down your existing notes:</p>
+<ol>
+<li><code>Git: Clone an existing remote repo</code>, paste the same GitHub URL, choose a folder, sign in with your GitHub username + the same Personal Access Token (or generate a new token for this device).</li>
+<li>Open that folder as your vault.</li>
+</ol>
+<h3 id="on-your-phone-ios-or-android">On your phone (iOS or Android)</h3>
+<ol>
+<li>Install the <strong>Obsidian</strong> app from the App Store or Google Play.</li>
+<li>Create a vault (any name — it'll be replaced by the sync).</li>
+<li>Go to <strong>Settings → Community plugins</strong>, turn on community plugins, and install/enable the <strong>Git</strong> plugin, exactly as in Part 5.</li>
+<li>Open the Command palette (tap the icon that looks like <code>&gt;_</code> or swipe from the edge, depending on your Obsidian version) and run <code>Git: Clone an existing remote repo</code>, same as before, using your GitHub username and Personal Access Token.</li>
+<li>Turn on the same auto-backup/auto-pull interval settings from Part 7.</li>
+</ol>
+<p><strong>Mobile note — read this:</strong> on desktop, the plugin uses the real Git program you installed in Part 2. On mobile, there's no such thing, so the plugin uses a different, JS-based Git implementation behind the scenes. It generally works, but it's less mature than the desktop version — expect it to be somewhat slower, occasionally flakier on first clone, and worth double-checking after major Obsidian or plugin updates since mobile support has changed between versions. Phone syncing can also lag behind because mobile operating systems restrict what apps can do in the background.</p>
+<p>If your phone notes look out of date, don't panic — open the Command palette and run <code>Git: Pull</code> manually, which reliably forces a fresh download. If a clone or sync fails outright on mobile, doing that same clone once on a laptop/desktop first and confirming it works there is a good way to tell whether the problem is your repo or just the mobile Git implementation.</p>
+<hr />
+<h2 id="part-9-what-to-do-if-you-get-a-merge-conflict">Part 9: What to Do If You Get a Merge Conflict</h2>
+<p>This is the scariest-sounding part for beginners, but it's rare if you let auto-pull run before you start editing, and it's not dangerous — Git never deletes your data, it just needs you to pick which version to keep.</p>
+<p>A conflict happens when you edited the same note on two devices before they had a chance to sync with each other.</p>
+<p><strong>If it happens:</strong></p>
+<ol>
+<li>The Git plugin will show a notice mentioning a merge conflict, and the affected note will contain both versions of the text, separated by markers that look like this:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>This is the version from this device.
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>=======
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>This is the version from the other device.
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt; some-random-id
+</code></pre></div>
+<ol>
+<li>Open the note. Manually edit it: delete the version you don't want to keep, and delete the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> marker lines themselves. Keep just the clean text you want.</li>
+<li>Save the note.</li>
+<li>Run <code>Git: Commit all changes</code> from the Command palette, then <code>Git: Push</code>.</li>
+</ol>
+<p>That's it — conflict resolved. To avoid this entirely, get in the habit of waiting a few seconds after opening Obsidian on any device (letting auto-pull finish) before you start typing.</p>
+<hr />
+<h2 id="quick-reference-the-only-commands-you-need">Quick Reference: The Only Commands You Need</h2>
+<p>Access all of these via the Command palette (<code>Ctrl/Cmd + P</code>), typing <code>Git:</code> to filter the list:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+<th>When to use it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Git: Pull</code></td>
+<td>Downloads the latest notes from GitHub</td>
+<td>When switching to a device you haven't used in a while</td>
+</tr>
+<tr>
+<td><code>Git: Commit all changes</code></td>
+<td>Saves a snapshot of your current changes</td>
+<td>Rarely needed manually if auto-backup is on</td>
+</tr>
+<tr>
+<td><code>Git: Push</code></td>
+<td>Uploads your snapshot to GitHub</td>
+<td>Rarely needed manually if auto-backup is on</td>
+</tr>
+<tr>
+<td><code>Git: Commit and Sync</code></td>
+<td>Does commit + pull + push in one step</td>
+<td>Good manual "sync now" button</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="appendix-doing-it-from-the-command-line-optional">Appendix: Doing It From the Command Line (Optional)</h2>
+<p>If you ever get curious about what the plugin is doing under the hood, here's the equivalent raw Git workflow — you never need this for the plugin-based setup above to work, but it's useful if you want to understand Git itself.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Clone your notes repo to a new folder</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yourusername/obsidian-vault.git
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Move into that folder</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">cd</span><span class="w"> </span>obsidian-vault
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># After making changes, save a snapshot</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Updated notes&quot;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># Upload it to GitHub</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>git<span class="w"> </span>push
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1"># Download the latest changes from GitHub</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>git<span class="w"> </span>pull
+</code></pre></div>
+<p>When prompted for a password on the command line, use your Personal Access Token, not your GitHub account password.</p>
+<hr />
+<h2 id="optional-a-plugin-worth-trying-once-youre-set-up">Optional: A Plugin Worth Trying Once You're Set Up</h2>
+<p>Unrelated to syncing, but worth knowing about once your vault is up and running: <a href="https://github.com/bytetiles/obsidian-cornell-notes">Cornell Notes for Obsidian</a> renders the classic two-column Cornell note-taking layout (cues on the left, notes on the right) right inside Obsidian's Reading view. You write it as a fenced <code>```cornell</code> code block using <code>::cue</code> and <code>::note</code> markers, and it supports lists, tables, code, and images in either column. Install it the same way you installed the Git plugin — <strong>Settings → Community plugins → Browse</strong> and search for "Cornell Notes."</p>
+<p>One quirk to know going in: the two-column layout only renders in <strong>Reading view</strong>, not Live Preview, and it won't render Obsidian's <code>~sub~</code>/<code>^sup^</code> shorthand (use HTML tags or Unicode characters instead if you need those).</p>
+<hr />
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://obsidian.md/">Obsidian</a></li>
+<li><a href="https://github.com/Vinzent03/obsidian-git">Obsidian Git plugin (GitHub page)</a></li>
+<li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">GitHub: Creating a personal access token</a></li>
+<li><a href="https://git-scm.com/downloads">Git downloads</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/d-henry" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/dylan-henry-39b42b153/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:d.arthur.henry@gmail.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
