@@ -11,9 +11,11 @@ nav:
     - Tools:
         - Git: git.md
         - AI Tools: ai-tools.md
+        - Obsidian + GitHub Sync: obsidian-sync.md
 
 theme:
     name: material
+    favicon: img/favicon.png
     palette:
         scheme: slate
         primary: black
@@ -22,6 +24,15 @@ theme:
         - navigation.sections
         - navigation.top
         - content.code.copy
+
+extra:
+    social:
+        - icon: fontawesome/brands/github
+          link: https://github.com/d-henry
+        - icon: fontawesome/brands/linkedin
+          link: https://www.linkedin.com/in/dylan-henry-39b42b153/
+        - icon: fontawesome/solid/envelope
+          link: mailto:d.arthur.henry@gmail.com
 
 extra_css:
     - css/custom.css

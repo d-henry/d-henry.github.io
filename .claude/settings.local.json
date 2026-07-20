@@ -5,7 +5,12 @@
       "Bash(pip list:*)",
       "Bash(mkdocs build:*)",
       "Bash(python -m mkdocs build)",
-      "Bash(pip install:*)"
+      "Bash(pip install:*)",
+      "Bash(python -m mkdocs build --strict)",
+      "Read(//c/tmp/**)",
+      "Read(//c/Users/Dylan/AppData/Local/Temp/claude/**)",
+      "Bash(python -c ' *)",
+      "Bash(git add *)"
     ]
   }
 }
