@@ -293,6 +293,14 @@ When prompted for a password on the command line, use your Personal Access Token
 
 ---
 
+## Optional: A Plugin Worth Trying Once You're Set Up
+
+Unrelated to syncing, but worth knowing about once your vault is up and running: [Cornell Notes for Obsidian](https://github.com/bytetiles/obsidian-cornell-notes) renders the classic two-column Cornell note-taking layout (cues on the left, notes on the right) right inside Obsidian's Reading view. You write it as a fenced ` ```cornell ` code block using `::cue` and `::note` markers, and it supports lists, tables, code, and images in either column. Install it the same way you installed the Git plugin — **Settings → Community plugins → Browse** and search for "Cornell Notes."
+
+One quirk to know going in: the two-column layout only renders in **Reading view**, not Live Preview, and it won't render Obsidian's `~sub~`/`^sup^` shorthand (use HTML tags or Unicode characters instead if you need those).
+
+---
+
 ## Links
 
 - [Obsidian](https://obsidian.md/)
